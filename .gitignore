@@ -1,6 +1,11 @@
 # Compiled class file
 *.class
 
+dependency-reduced-pom.xml
+
+.idea/*
+*.iml
+target/*
 # Log file
 *.log
 
@@ -17,6 +22,8 @@
 *.zip
 *.tar.gz
 *.rar
+
+jmh-result.*
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
