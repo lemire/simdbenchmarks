@@ -7,7 +7,7 @@ import static com.openkappa.simd.DataUtil.createFloatArray;
 @State(Scope.Thread)
 public class FloatData {
 
-    @Param({"1024", "2048", "4096", "8192", "16384", "32768"})
+    @Param({"100000", "1000000"})
     int size;
 
     public float[] data1;

@@ -19,6 +19,7 @@ public class Launcher {
                 .warmupIterations(10)
                 .measurementIterations(10)
                 .forks(1)
+                .shouldFailOnError(true)
                 .output(parsed.output())
                 .resultFormat(ResultFormatType.CSV);
         if (null != parsed.jvmArgs()) {
