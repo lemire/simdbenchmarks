@@ -14,6 +14,7 @@ public class DataUtil {
     }
 
 
+
     public static float[] createFloatArray(int size) {
         Random rand = new Random(0);
         float[] array = new float[size];
