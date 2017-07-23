@@ -1,0 +1,46 @@
+package com.openkappa.simd.hashcode;
+
+import com.openkappa.simd.state.BytePrefixData;
+import com.openkappa.simd.state.IntData;
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.CompilerControl;
+import org.openjdk.jmh.annotations.OutputTimeUnit;
+
+import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
+
+@OutputTimeUnit(TimeUnit.MICROSECONDS)
+public class HashCode {
+
+
+    @Benchmark
+    @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+    public int Unrolled(IntData ints) {
+        int[] a = ints.data1;
+        if (a == null)
+            return 0;
+
+        int result = 1;
+        int i = 0;
+        for (; i + 3 < a.length; i += 4) {
+            result = 31 * 31 * 31 * 31 * result
+                   + 31 * 31 * 31 * a[i]
+                   + 31 * 31 * a[i + 1]
+                   + 31 * a[i + 2]
+                   + a[i + 3];
+        }
+        for (; i < a.length; i++) {
+            result = 31 * result + a[i];
+        }
+        return result;
+    }
+
+    @Benchmark
+    @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+    public int BuiltIn(BytePrefixData bytes) {
+        return Arrays.hashCode(bytes.data1);
+    }
+
+
+
+}
