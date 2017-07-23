@@ -1,6 +1,5 @@
 package com.openkappa.simd.hashcode;
 
-import com.openkappa.simd.state.BytePrefixData;
 import com.openkappa.simd.state.IntData;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.CompilerControl;
@@ -37,7 +36,7 @@ public class HashCode {
 
     @Benchmark
     @CompilerControl(CompilerControl.Mode.DONT_INLINE)
-    public int BuiltIn(BytePrefixData bytes) {
+    public int BuiltIn(IntData bytes) {
         return Arrays.hashCode(bytes.data1);
     }
 
