@@ -1,6 +1,6 @@
 package com.openkappa.simd.hashcode;
 
-import com.openkappa.simd.state.IntData;
+import com.openkappa.simd.state.HashCodeData;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.CompilerControl;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
@@ -14,8 +14,8 @@ public class HashCode {
 
     @Benchmark
     @CompilerControl(CompilerControl.Mode.DONT_INLINE)
-    public int Unrolled(IntData ints) {
-        int[] a = ints.data1;
+    public int Unrolled(HashCodeData state) {
+        int[] a = state.data;
         if (a == null)
             return 0;
 
@@ -36,8 +36,14 @@ public class HashCode {
 
     @Benchmark
     @CompilerControl(CompilerControl.Mode.DONT_INLINE)
-    public int BuiltIn(IntData bytes) {
-        return Arrays.hashCode(bytes.data1);
+    public int BuiltIn(HashCodeData state) {
+        return Arrays.hashCode(state.data);
+    }
+
+    @Benchmark
+    @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+    public int FixedLength(HashCodeData state) {
+        return state.hashCode.hashCode(state.data);
     }
 
 
