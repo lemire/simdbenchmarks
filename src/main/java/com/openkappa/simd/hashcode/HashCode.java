@@ -11,7 +11,6 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 public class HashCode {
 
-
     @Benchmark
     @CompilerControl(CompilerControl.Mode.DONT_INLINE)
     public int Unrolled(HashCodeData state) {
