@@ -8,8 +8,8 @@ public interface ParsedArgs {
     @Option(defaultValue = "com.openkappa.simd.*", shortName = "i", longName = "include")
     String include();
 
-    @Option(defaultToNull = true, shortName = "j", longName = "jvm-args")
-    String jvmArgs();
+    @Option(shortName = "p", longName = "print-assembly")
+    Boolean printAssembly();
 
     @Option(defaultValue = "Throughput", shortName = "m", longName = "mode")
     Mode mode();

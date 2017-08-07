@@ -14,6 +14,16 @@ public class DataUtil {
     }
 
 
+    public static double[] createDoubleArrayGaussian(int size) {
+        Random rand = new Random(0);
+        double[] array = new double[size];
+        for (int i = 0; i < size; ++i) {
+            array[i] = rand.nextGaussian();
+        }
+        return array;
+    }
+
+
 
     public static float[] createFloatArray(int size) {
         Random rand = new Random(0);
