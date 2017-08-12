@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.SECONDS)
 public class PositiveValues {
 
-    //@Benchmark
+    @Benchmark
     @CompilerControl(CompilerControl.Mode.DONT_INLINE)
     public double[] BranchyCopyAndMask(ArrayWithNegatives state) {
         double[] data = state.data;
@@ -34,7 +34,7 @@ public class PositiveValues {
         return result;
     }
 
-    //@Benchmark
+    @Benchmark
     @CompilerControl(CompilerControl.Mode.DONT_INLINE)
     public double[] NewArray(ArrayWithNegatives state) {
         double[] data = state.data;
@@ -45,7 +45,7 @@ public class PositiveValues {
         return result;
     }
 
-    //@Benchmark
+    @Benchmark
     @CompilerControl(CompilerControl.Mode.DONT_INLINE)
     public double[] CopyAndMask(ArrayWithNegatives state) {
         double[] data = state.data;

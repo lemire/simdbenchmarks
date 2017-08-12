@@ -20,7 +20,7 @@ public class Launcher {
                 .measurementIterations(10)
                 .forks(1)
                 .shouldFailOnError(true)
-                //.output(parsed.output())
+                .output(parsed.output())
                 .resultFormat(ResultFormatType.CSV);
         if (parsed.printAssembly()) {
             builder = builder.jvmArgs("-XX:+UnlockDiagnosticVMOptions",
