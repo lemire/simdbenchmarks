@@ -11,12 +11,15 @@ public interface ParsedArgs {
     @Option(shortName = "p", longName = "print-assembly")
     Boolean printAssembly();
 
+    @Option(shortName = "c", longName = "print-compilation")
+    Boolean printCompilation();
+
     @Option(defaultValue = "Throughput", shortName = "m", longName = "mode")
     Mode mode();
 
     @Option(defaultValue = "10", shortName = "t", longName = "time-seconds")
     int measurementTime();
 
-    @Option(defaultValue = ".", shortName = "o", longName = "output")
+    @Option(defaultToNull = true, shortName = "o", longName = "output")
     String output();
 }

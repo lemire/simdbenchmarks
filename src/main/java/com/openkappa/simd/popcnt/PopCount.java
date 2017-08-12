@@ -1,5 +1,6 @@
 package com.openkappa.simd.popcnt;
 
+import com.openkappa.simd.state.IntData;
 import com.openkappa.simd.state.LongData;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.CompilerControl;
@@ -17,6 +18,17 @@ public class PopCount {
         long[] data = state.data1;
         for (int i = 0; i < data.length; ++i) {
             popCnt += Long.bitCount(data[i]);
+        }
+        return popCnt;
+    }
+
+    @Benchmark
+    @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+    public int PopCountInt(IntData state) {
+        int popCnt = 0;
+        int[] data = state.data1;
+        for (int i = 0; i < data.length; ++i) {
+            popCnt += Integer.bitCount(data[i]);
         }
         return popCnt;
     }

@@ -1,0 +1,30 @@
+Benchmarks: 
+com.openkappa.simd.popcnt.PopCount.PopCount
+# JMH version: 1.19
+# VM version: JDK 9-ea, VM 9-ea+166
+# VM invoker: C:\Program Files\Java\jdk-9\bin\java.exe
+# VM options: -javaagent:C:\Program Files (x86)\JetBrains\IntelliJ IDEA 2017.1\lib\idea_rt.jar=54871:C:\Program Files (x86)\JetBrains\IntelliJ IDEA 2017.1\bin -Dfile.encoding=UTF-8
+# Warmup: 10 iterations, 1 s each
+# Measurement: 10 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.simd.popcnt.PopCount.PopCount
+# Parameters: (size = 100000)
+
+# Run progress: 0.00% complete, ETA 00:03:40
+# Fork: 1 of 1
+# Warmup Iteration   1: 17.233 ops/ms
+# Warmup Iteration   2: 17.881 ops/ms
+# Warmup Iteration   3: 21.437 ops/ms
+# Warmup Iteration   4: 18.518 ops/ms
+# Warmup Iteration   5: 20.008 ops/ms
+# Warmup Iteration   6: 19.284 ops/ms
+# Warmup Iteration   7: 8.307 ops/ms
+# Warmup Iteration   8: 8.590 ops/ms
+# Warmup Iteration   9: 9.274 ops/ms
+# Warmup Iteration  10: 7.338 ops/ms
+Iteration   1: 8.385 ops/ms
+Iteration   2: 8.644 ops/ms
+Iteration   3: 8.548 ops/ms
+Iteration   4: 

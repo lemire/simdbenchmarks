@@ -19,14 +19,22 @@ public class Launcher {
                 .warmupIterations(10)
                 .measurementIterations(10)
                 .forks(1)
+                .jvmArgsPrepend("-server")
                 .shouldFailOnError(true)
-                .output(parsed.output())
                 .resultFormat(ResultFormatType.CSV);
         if (parsed.printAssembly()) {
-            builder = builder.jvmArgs("-XX:+UnlockDiagnosticVMOptions",
-                                      "-XX:+PrintAssembly",
-                                      "-XX:PrintAssemblyOptions=hsdis-print-bytes",
-                                      "-XX:CompileCommand=print");
+            builder = builder.jvmArgsAppend("-XX:+UnlockDiagnosticVMOptions",
+                                            "-XX:+PrintAssembly",
+                                            "-XX:PrintAssemblyOptions=hsdis-print-bytes",
+                                            "-XX:CompileCommand=print");
+        }
+        if (parsed.printCompilation()) {
+            builder = builder.jvmArgsAppend("-XX:+PrintCompilation",
+                                            "-XX:+UnlockDiagnosticVMOptions",
+                                            "-XX:+PrintInlining");
+        }
+        if (null != parsed.output()) {
+            builder = builder.output(parsed.output());
         }
 
         Runner runner = new Runner(builder.build());
