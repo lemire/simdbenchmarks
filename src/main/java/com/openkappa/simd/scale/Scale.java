@@ -33,6 +33,30 @@ public class Scale {
         return 3.14159 * value;
     }
 
+
+    @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+    @Benchmark
+    public int NaiveSum(IntData state) {
+        int value = 0;
+        int[] data = state.data1;
+        for (int i = 0; i < data.length; ++i) {
+            value += data[i];
+        }
+        return value;
+    }
+
+
+    @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+    @Benchmark
+    public int CropCircle(IntData state) {
+        int value = 0;
+        int[] data = state.data1;
+        for (int i = 0; i < data.length; ++i) {
+            value += 2 * data[i];
+        }
+        return value / 2;
+    }
+
     @CompilerControl(CompilerControl.Mode.DONT_INLINE)
     @Benchmark
     public int Scale_Int(IntData state) {
