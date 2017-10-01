@@ -7,7 +7,7 @@ import static com.openkappa.simd.DataUtil.createLongArray;
 @State(Scope.Thread)
 public class LongData {
 
-    @Param({"100000", "1000000"})
+    @Param({"1024", "4096", "8192"})
     int size;
 
     public long[] data1;
