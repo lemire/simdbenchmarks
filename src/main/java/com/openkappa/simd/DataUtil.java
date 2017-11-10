@@ -63,6 +63,15 @@ public class DataUtil {
         return array;
     }
 
+    public static char[] createCharArray(int size) {
+        Random rand = new Random(0);
+        char[] array = new char[size];
+        for (int i = 0; i < size; ++i) {
+            array[i] = (char)rand.nextInt();
+        }
+        return array;
+    }
+
     public static byte[] createByteArray(int size) {
         Random rand = new Random(0);
         byte[] array = new byte[size];

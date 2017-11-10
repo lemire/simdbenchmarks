@@ -11,6 +11,14 @@ import org.openjdk.jmh.runner.options.TimeValue;
 public class Launcher {
 
     public static void main(String[] args) throws RunnerException {
+
+        byte b = (byte)(-(1 << 7));
+
+        int mask = 1 << 7;
+
+        System.out.println(Integer.toBinaryString(b & 0xFF & mask));
+        System.out.println(Integer.toBinaryString(b & mask));
+
         ParsedArgs parsed = CliFactory.parseArguments(ParsedArgs.class, args);
         ChainedOptionsBuilder builder = new OptionsBuilder()
                 .include(parsed.include())
@@ -24,7 +32,8 @@ public class Launcher {
                 .resultFormat(ResultFormatType.CSV);
         if (parsed.printAssembly()) {
             builder = builder.jvmArgsAppend("-XX:+UnlockDiagnosticVMOptions",
-                                            "-XX:+PrintAssembly",
+                                            "-XX:CompileCommand=print" + (null == parsed.methodName()
+                                                    ? "" : ",*" + parsed.methodName()),
                                             "-XX:PrintAssemblyOptions=hsdis-print-bytes",
                                             "-XX:CompileCommand=print");
         }

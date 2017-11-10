@@ -11,6 +11,9 @@ public interface ParsedArgs {
     @Option(shortName = "p", longName = "print-assembly")
     Boolean printAssembly();
 
+    @Option(shortName = "n", longName = "method-name", defaultToNull = true)
+    String methodName();
+
     @Option(shortName = "c", longName = "print-compilation")
     Boolean printCompilation();
 
