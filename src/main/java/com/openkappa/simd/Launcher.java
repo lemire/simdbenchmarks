@@ -11,14 +11,6 @@ import org.openjdk.jmh.runner.options.TimeValue;
 public class Launcher {
 
     public static void main(String[] args) throws RunnerException {
-
-        byte b = (byte)(-(1 << 7));
-
-        int mask = 1 << 7;
-
-        System.out.println(Integer.toBinaryString(b & 0xFF & mask));
-        System.out.println(Integer.toBinaryString(b & mask));
-
         ParsedArgs parsed = CliFactory.parseArguments(ParsedArgs.class, args);
         ChainedOptionsBuilder builder = new OptionsBuilder()
                 .include(parsed.include())
