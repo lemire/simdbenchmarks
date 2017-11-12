@@ -5,6 +5,10 @@ import java.util.stream.IntStream;
 
 public class IntegerFunctions {
 
+    public static void main(String[] args) {
+
+    }
+
     static int[] map(int[] transform, int[] values) {
         int[] mapped = new int[values.length];
         for (int i = 0; i < values.length; ++i) {
