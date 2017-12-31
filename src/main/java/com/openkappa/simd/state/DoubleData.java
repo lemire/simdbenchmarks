@@ -7,7 +7,7 @@ import static com.openkappa.simd.DataUtil.createDoubleArray;
 @State(Scope.Thread)
 public class DoubleData {
 
-    @Param({"100000", "1000000"})
+    @Param({"1000", "10000", "100000", "1000000"})
     int size;
 
     public double[] data1;
