@@ -19,7 +19,7 @@ public class Launcher {
                 .warmupIterations(10)
                 .measurementIterations(10)
                 .forks(1)
-                .jvmArgsPrepend("-server")
+                .jvmArgsPrepend("-server", "-XX:-TieredCompilation")
                 .shouldFailOnError(true)
                 .resultFormat(ResultFormatType.CSV);
         if (parsed.printAssembly()) {
