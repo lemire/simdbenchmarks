@@ -10,18 +10,24 @@ import static com.openkappa.simd.DataUtil.createDoubleArray;
 
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @State(Scope.Thread)
-public class DAXPYAlignment {
-  @Param({"250", "256", "1000", "1024"})
+public class DAXPYAlignmentOffset {
+
+  @Param({"1000", "1024"})
   int size;
+
+  @Param({"0", "6", "12", "18", "24"})
+  int offset;
 
   double s;
   double[] a;
   double[] b;
+  double[] padding;
 
   @Setup(Level.Trial)
   public void init() {
     s = ThreadLocalRandom.current().nextDouble();
     a = createDoubleArray(size);
+    padding = new double[offset];
     b = createDoubleArray(size);
   }
 
