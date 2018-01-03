@@ -17,6 +17,9 @@ public interface ParsedArgs {
     @Option(shortName = "c", longName = "print-compilation")
     Boolean printCompilation();
 
+    @Option(shortName = "x", longName = "perfasm")
+    Boolean doPerfasm();
+
     @Option(defaultValue = "Throughput", shortName = "m", longName = "mode")
     Mode mode();
 
